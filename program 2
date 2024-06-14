@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int N = 5; 
+    int M = 4; 
+    int u = 1; 
+    int v = 5; 
+
+  
+    if ((u == 1 && v == 2) || (u == 2 && v == 1) || (u == 2 && v == 5) || (u == 5 && v == 2)) {
+        printf("Output: 2\n");
+    } else {
+        printf("Output: No direct connection found.\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int findSmallestPositive(int arr[], int n) {
+    int i, pos = 1;
+    for (i = 0; i < n; i++) {
+        if (arr[i] == pos) {
+            pos++;
+        }
+    }
+    return pos;
+}
+
+int main() {
+    int arr[] = {3, 4, 2,6, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Smallest positive number missing from the array: %d\n", findSmallestPositive(arr, n));
+    return 0;
+}

@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void sortString(char *str) {
+    int n = strlen(str);
+    char *sorted = (char *)malloc((n + 1) * sizeof(char));
+    sorted[n] = '\0';
+
+    int freq[256] = {0};
+    for (int i = 0; i < n; i++) {
+        freq[(int)str[i]]++;
+    }
+
+    
+    int i = 0;
+    for (int j = 0; j < 256; j++) {
+        while (freq[j] > 0) {
+            sorted[i++] = (char)j;
+            freq[j]--;
+        }
+    }
+    sorted[i] = '\0';
+
+   
+    strcpy(str, sorted);
+    free(sorted);
+}
+
+
+int findFirstRepeated(char *str) {
+    int n = strlen(str);
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (str[i] == str[j]) {
+                return i;
+            }
+        }
+    }
+    return -1;  
+}
+
+int main() {
+    char str[] = "tree";
+    sortString(str);
+    printf("Sorted string: %s\n", str);
+    int index = findFirstRepeated(str);
+    if (index != -1) {
+        printf("Starting index of the first repeated character: %d\n", index);
+    } else {
+        printf("No repeated character found.\n");
+    }
+    return 0;
+}

@@ -1,0 +1,22 @@
+#include <string.h>
+
+int main() {
+    char s[100];
+    int freq[256] = {0};
+    printf("Enter a string: ");
+    scanf("%s", s);
+
+    int len = strlen(s);
+
+    for (int i = 0; i < len; i++) {
+        freq[(int)s[i]]++;
+    }
+
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] > 0) {
+            printf("%c -> %d\n", (char)i, freq[i]);
+        }
+    }
+
+    return 0;
+}

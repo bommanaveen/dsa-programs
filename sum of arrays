@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int sumArrays(int nums1[], int m, int nums2[], int n) {
+    int i = m - 1, j = n - 1, sum = 0;
+    while (i >= 0 || j >= 0) {
+        if (i >= 0) {
+            sum += nums1[i];
+            i--;
+        }
+        if (j >= 0) {
+            sum += nums2[j];
+            j--;
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int nums1[] = {1, 3};
+    int nums2[] = {2};
+    int m = sizeof(nums1) / sizeof(nums1[0]);
+    int n = sizeof(nums2) / sizeof(nums2[0]);
+    printf("%d\n", sumArrays(nums1, m, nums2, n));
+    return 0;
+}
